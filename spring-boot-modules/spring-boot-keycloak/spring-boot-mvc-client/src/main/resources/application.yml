@@ -9,13 +9,14 @@ spring:
     oauth2:
       client:
         provider:
-          baeldung-keycloak:
-            issuer-uri: http://localhost:8080/realms/baeldung-keycloak
+          SpringBootKeycloak:
+            #issuer-uri: http://localhost:8080/realms/baeldung-keycloak
+            issuer-uri: http://192.168.125.10:9001/realms/SpringBootKeycloak
         registration:
           keycloak:
-            provider: baeldung-keycloak
+            provider: SpringBootKeycloak
             authorization-grant-type: authorization_code
-            client-id: baeldung-keycloak-confidential
+            client-id: login-app
             client-secret: secret
             scope: openid
 
@@ -24,7 +25,7 @@ logging:
     org:
       springframework:
         security: DEBUG
-        boot: INFO
+        boot: DEBUG
 
 management:
   endpoint:
